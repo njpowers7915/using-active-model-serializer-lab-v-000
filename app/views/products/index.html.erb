@@ -15,6 +15,7 @@ $(function() {
         if(data["inventory"] == 0) {
           inventoryText = "<strong>Sold Out</strong>";
         }
+        return inventoryText
       });
       var description = data["description"]
       var order_id = data["orders"]["id"]
