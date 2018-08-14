@@ -15,12 +15,10 @@ $(function() {
         if(inventory === "false") {
           inventoryText = "<strong>Sold Out</strong>";
         }
-        return inventoryText
-      }
-      var description = data["description"]
-      var created_at = data["created_at"]
-      var moreText = "<p>" + id + "</p><p>" + description + "</p><p>" + inventoryText + "</p><p>" created_at + "</p>";
-      $("#product-" + id).html(moreText);
+        var description = data["description"]
+        var created_at = data["created_at"]
+        var moreText = "<p>" + id + "</p><p>" + description + "</p><p>" + inventoryText + "</p><p>" created_at + "</p>";
+        $("#product-" + id).html(moreText);
       });
     });
   });
