@@ -19,7 +19,7 @@ $(function() {
       var description = data["description"]
       var order_id = data["orders"]["id"]
       var created_at = data["orders"]["created_at"]
-      var moreText = "<p>" + order_id + "</p><p>" + description + "</p><p>" + inventoryText + "</p><p>" created_at + "</p>";
+      var moreText = "<p>" + order_id + "</p><p>" + description + "</p><p>" + inventoryText + "</p><p>" + created_at + "</p>";
       $("#product-" + id).html(moreText);
       });
     });
