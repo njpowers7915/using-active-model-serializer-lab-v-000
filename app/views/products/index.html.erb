@@ -5,7 +5,7 @@
   <button class="js-more" data-id="<%= product.id %>">More Info</button>
 <% end %>
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript" charset="utf-8"> 
 $(function() {
   $(".js-more").on("click", function() {
     var id = $(this).data("id");
@@ -15,8 +15,10 @@ $(function() {
         if(inventory === "false") {
           inventoryText = "<strong>Sold Out</strong>";
         }
-        var description = data[:description]
-        var created_at = data[:created_at]
+        return inventoryText
+      }
+      var description = data["description"]
+      var created_at = data["created_at"]
       var moreText = "<p>" + id + "</p><p>" + description + "</p><p>" + inventoryText + "</p><p>" created_at + "</p>";
       $("#product-" + id).html(moreText);
       });
