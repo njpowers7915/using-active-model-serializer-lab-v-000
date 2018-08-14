@@ -12,13 +12,14 @@ $(function() {
     $.get("/products/" + id + ".json", function(data) {
       $.get("/products/" + id + ".json", function(inventory) {
         var inventoryText = "<strong>Available</strong>";
-        if(inventory === "false") {
+        if(data["inventory"] === "false") {
           inventoryText = "<strong>Sold Out</strong>";
         }
-        var description = data["description"]
-        var created_at = data["created_at"]
-        var moreText = "<p>" + id + "</p><p>" + description + "</p><p>" + inventoryText + "</p><p>" created_at + "</p>";
-        $("#product-" + id).html(moreText);
+      });
+      var description = data["description"]
+      var created_at = data["created_at"]
+      var moreText = "<p>" + id + "</p><p>" + description + "</p><p>" + inventoryText + "</p><p>" created_at + "</p>";
+      $("#product-" + id).html(moreText);
       });
     });
   });
