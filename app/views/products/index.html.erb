@@ -10,13 +10,11 @@ $(function() {
   $(".js-more").on("click", function() {
     var id = $(this).data("id");
     $.get("/products/" + id + ".json", function(data) {
-      $.get("/products/" + id + ".json", function(inventory) {
-        var inventoryText = "<strong>Available</strong>";
-        if(data["inventory"] == 0) {
-          inventoryText = "<strong>Sold Out</strong>";
-        }
-        return inventoryText
-      });
+      if (data["inventory"] > 0) {
+        var inventoryText = "<strong>Available</strong>"
+      } else {
+        var inventoryText = "<strong>Sold Out</strong>"
+      }
       var description = data["description"]
       var order_id = data["orders"]["id"]
       var created_at = data["orders"]["created_at"]
@@ -24,5 +22,5 @@ $(function() {
       $("#product-" + id).html(moreText);
       });
     });
-  });
+  }
 </script>
